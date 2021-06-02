@@ -8,11 +8,14 @@ var fallingsnow;
 var fallingsnowImg;
 
 var snowImg;
+var snowImg2
 
 
 
 function preload() {
   backgroundImg = loadImage("snow3.jpg");
+  snowImg = loadImage("snow4.webp");
+  snowImg2 = loadImage("snow5.webp");
 
 
 }
@@ -29,6 +32,7 @@ function draw() {
   
 
   spawnSnow();
+  spawnSnow2();
 
   drawSprites();
 }
@@ -36,10 +40,24 @@ function draw() {
 function spawnSnow() {
   if(frameCount %5 ===0) {
     var rand = random(1, 1000);
-    var snow = createSprite(rand, -2, 10, 10, 10);
+    var snow = createSprite(rand, -15, 10, 10, 10);
+    snow.scale= 0.1;
+    snow.addImage(snowImg);
  
     snow.velocityY = 3;
     
   } 
 
+}
+
+function spawnSnow2() {
+  if(frameCount %10 ===0) {
+    var rand = random(1, 1000);
+    var snow = createSprite(rand, -15, 10, 10, 10);
+    snow.scale= 0.1;
+    snow.addImage(snowImg2);
+ 
+    snow.velocityY = 2;
+
+  }
 }
